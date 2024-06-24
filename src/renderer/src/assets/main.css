@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+  }
+  #root {
+    @apply h-full;
+  }
+  html,
+  body {
+    @apply h-full;
+    @apply select-none overflow-hidden;
+  }
+  .App {
+    @apply h-full;
+    @apply bg-[url('../assets/bgg.jpeg')] dark:bg-[url('../assets/bg-dark.jpg')] dark:bg-primary-dark bg-primary bg-top dark:bg-center;
+    @apply font-sans text-base;
+    @apply antialiased text-slate-900 dark:text-slate-300;
+  }
+}
+
+@layer components {
+  .radio-btn {
+    @apply w-2/4 h-9 p-2 bg-blue-950 dark:bg-[#27173a] rounded-3xl cursor-pointer overflow-hidden absolute bottom-7;
+  }
+
+  .radio-btn .radio-inner {
+    @apply w-1/3 h-full relative bg-[#ffc207] rounded-3xl transition-all duration-500;
+  }
+
+  .radio-btn .radio-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    background-color: #27173a;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 0.3s;
+  }
+
+  .radio-btn .radio-inner.active {
+    transform: translate(calc(150px - 115px));
+  }
+
+  .radio-btn .radio-inner.active::before {
+    left: -10px;
+    transform: scale(1);
+  }
+}
